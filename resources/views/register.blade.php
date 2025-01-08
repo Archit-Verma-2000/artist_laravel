@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="author" content="">
 
     <title>SB Admin 2 - Register</title>
@@ -50,6 +51,7 @@
                             <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                         </div>
                         <form class="user" id="registerForm">
+                            @csrf
                             <div class="form-group">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user" 
@@ -80,7 +82,7 @@
                             <div class="form-group">
                                 <div class="col-sm-12 mb-3 mb-sm-0">
                                     <input type="password" class="form-control form-control-user"
-                                        placeholder="Password" id="pass" name="pass" required>
+                                        placeholder="Password" id="pass" name="password" required>
                                 </div>
                                 <div id="pass-error">
 
@@ -89,28 +91,9 @@
                             <div class="form-group">
                                 <div class="col-sm-12 mt-3">
                                     <input type="password" class="form-control form-control-user"
-                                         placeholder="Repeat Password" id="rpass" name="rpass" required>
+                                         placeholder="Repeat Password" id="password_confirmation" name="password_confirmation" required>
                                 </div>
                                 <div id="rpass-error">
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12 mt-3">
-                                <select class="form-select   rounded-pill"  style="color: #6e707e;" name="option" id="role" required>
-                                <option selected value="">Select Role</option>
-                                <?php
-                                $arr = array(0 => "Admin", "User");
-                               
-                                foreach ($arr as $index => $value) {
-                                ?>  
-                                    <option value="<?= $value ?>" ><?= $value ?></option>
-                                <?php
-                                }
-                                ?>
-                            </select>
-                                </div>
-                                <div id="role-error">
 
                                 </div>
                             </div>
@@ -168,10 +151,7 @@
                 "pass"
             );
             let rpass=document.getElementById(
-                "rpass"
-            );
-            let role=document.getElementById(
-                "role"
+                "password_confirmation"
             );
             fnameError=document.getElementById(
                 "fname-error"
@@ -188,12 +168,6 @@
             rpassError=document.getElementById(
                 "rpass-error"
             );
-            roleError=document.getElementById(
-                "role-error"
-            );
-            role.addEventListener("focus",()=>{
-                role.children[0].style.display="none";
-            })
             /*Checks for fname validation*/
             fname.addEventListener("input",(e)=>{
                 let fnameVal=e.target.value;
@@ -390,9 +364,6 @@
                     }
                 });
             /* Password validation */
-            role.addEventListener("input",()=>{
-                console.log(this.role.value);
-            });
         function nameValidation(msg,innerUnorderList)
         {
             innerList=document.createElement("li");
@@ -412,35 +383,36 @@
                 lnameError.innerHTML="";
                 this.lname.style.border="";
             });
-            email.addEventListener("blur",(e)=>{
-                emailError.innerHTML="";
-                this.email.style.border="";
-            });
+          
         /*Blur event on input*/
         let form=document.getElementById("registerForm");
-        var register=new Promise((resolve,reject)=>{
-            let fd=new FormData(form);
-            console.log(document.getElementById("fname").value);
-            
-        });
-        /*Register Form request*/
         document.querySelector("#Register").addEventListener("click",function(e){
                 e.preventDefault();
                 if(form.checkValidity()&&!errorFlag)
                 {
                     if(pass.value==rpass.value)
                     {
+                        console.log("inside promise");
                         new Promise((resolve,reject)=>{
                             let fd=new FormData(form);
                             fetch("{{route('RegisterRequest')}}",{
                                 body:fd,
                                 method:"POST",
                             })
-                            .then((response) => response.text())
+                            .then((response) => response.json())
                             .then((data) => {resolve(data)})
                             .catch((error) => {reject(error)});
                         })
-                        .then((data) => {console.log(data)})  
+                        .then((data) => {
+                            if(data.status=="success")
+                            {
+                                window.location.href="{{route('products')}}";
+                            }
+                            else if(data.status=="failed")
+                            {
+                                console.log(data.errors.email[0]) 
+                            }
+                        })  
                         .catch((error) => {console.log(error)});   
                     }
                     else

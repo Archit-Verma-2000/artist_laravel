@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="artist__picture">
-                        <img src="Public/assets/Customer/images/Detail-bio.png" class="img-fluid">
+                        <img src="{{asset('Customer/images/Detail-bio.png')}}" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -54,7 +54,7 @@
                     <div class="brands__slides">
                         <div class="products-artist">
                             <div class="artist-inner-box">
-                                <img src="Public/assets/Customer/images/popularcard10.png" alt="">
+                                <img src="{{asset('Customer/images/popularcard10.png')}}" alt="">
                                 <div class="dress-in">
                                     <h4>Fashion Dress 1</h4>
                                     <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
@@ -86,7 +86,7 @@
                     <div class="brands__slides">
                         <div class="products-artist">
                             <div class="artist-inner-box">
-                                <img src="Public/assets/Customer/images/popularcard12.png" alt="">
+                                <img src="{{asset('Customer/images/popularcard12.png')}}" alt="">
                                 <div class="dress-in">
                                     <h4>Fashion Dress 1</h4>
                                     <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
@@ -118,7 +118,7 @@
                     <div class="brands__slides">
                         <div class="products-artist">
                             <div class="artist-inner-box">
-                                <img src="Public/assets/Customer/images/popularcard13.png" alt="">
+                                <img src="{{asset('Customer/images/popularcard13.png')}}" alt="">
                                 <div class="dress-in">
                                     <h4>Fashion Dress 1</h4>
                                     <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
@@ -150,7 +150,7 @@
                     <div class="brands__slides">
                         <div class="products-artist">
                             <div class="artist-inner-box">
-                                <img src="Public/assets/Customer/images/popularcard4.png" alt="">
+                                <img src="{{asset('Customer/images/popularcard4.png')}}" alt="">
                                 <div class="dress-in">
                                     <h4>Fashion Dress 1</h4>
                                     <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
@@ -192,8 +192,8 @@
     <!-- Footer section -->
 
 
-    <script src="Public/assets/Customer/js/jquery.js"></script>
-    <script src="Public/assets/Customer/js/bootstrap.js"></script>
+    <script src="{{asset('Customer/js/jquery.js"></script>
+    <script src="{{asset('Customer/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

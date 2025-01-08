@@ -15,7 +15,7 @@
 								<ul class="menu_navigation">
 									<li class=""><a href="{{route('index')}}" class="active">Home</a>
 									</li>
-									<li><a href="products.php">Products </a></li>
+									<li><a href="{{route('products')}}">Products </a></li>
                                     <li><a href="{{route('login')}}">Login</a></li>
                                     <li><a href="{{route('register')}}">Register</a></li>
 								</ul>

@@ -9,14 +9,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/Products-Artist.png" alt="">
+                                    <img src="{{asset('Customer/images/Products-Artist.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -43,14 +43,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-s">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/second.png" alt="">
+                                    <img src="{{asset('Customer/images/second.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -77,14 +77,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-m">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/shop-list.png" alt="">
+                                    <img src="{{asset('Customer/images/shop-list.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -111,14 +111,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-m">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/shop-list-img.png" alt="">
+                                    <img src="{{asset('Customer/images/shop-list-img.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -149,14 +149,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/Products-Artist.png" alt="">
+                                    <img src="{{asset('Customer/images/Products-Artist.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -183,14 +183,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-s">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/second.png" alt="">
+                                    <img src="{{asset('Customer/images/second.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -217,14 +217,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-m">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/shop-list.png" alt="">
+                                    <img src="{{asset('Customer/images/shop-list.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -251,14 +251,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-m">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/shop-list-img.png" alt="">
+                                    <img src="{{asset('Customer/images/shop-list-img.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -289,14 +289,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/Products-Artist.png" alt="">
+                                    <img src="{{asset('Customer/images/Products-Artist.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -323,14 +323,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-s">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/second.png" alt="">
+                                    <img src="{{asset('Customer/images/second.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -357,14 +357,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-m">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/shop-list.png" alt="">
+                                    <img src="{{asset('Customer/images/shop-list.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -391,14 +391,14 @@
                         <div class="col-lg-3 col-md-6">
                             <div class="products-artist responsive-m">
                                 <div class="artist-inner-box">
-                                    <img src="Public/assets/Customer/images/shop-list-img.png" alt="">
+                                    <img src="{{asset('Customer/images/shop-list-img.png')}}" alt="">
                                     <div class="dress-in">
                                         <h4>Fashion Dress 1</h4>
                                         <p>Fusce bibendum, nibh sed, cons ectetur adipi scingeliras
                                             sod</p>
                                         <div class="artist-name">
                                             <div class="artist-img">
-                                                <img src="Public/assets/Customer/images/Ellipse.png" alt="">
+                                                <img src="{{asset('Customer/images/Ellipse.png')}}" alt="">
                                                 <p>By Artist Name</p>
                                             </div>
                                             <div class="star">
@@ -436,8 +436,8 @@
     <!-- Footer section -->
 
 
-    <script src="Public/assets/Customer/js/jquery.js"></script>
-    <script src="Public/assets/Customer/js/bootstrap.js"></script>
+    <script src="{{asset('Customer/js/jquery.js"></script>
+    <script src="{{asset('Customer/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
         integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>

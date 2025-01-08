@@ -45,10 +45,11 @@
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     <form class="user" id="Login-form">
+                                        @csrf
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                  aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..."  id="email" pattern='^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$' required>
+                                                placeholder="Enter Email Address..."  name="email" id="email" pattern='^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$' required>
                                             <div id="email-valid">
 
                                             </div>
@@ -110,6 +111,7 @@
 </body>
 <script>
     window.addEventListener("load",()=>{
+       errorFlag=true;
        email=document.getElementById("email");
        password=document.getElementById("password");
        errorEmail=["email field required","pattern matched"];
@@ -129,11 +131,13 @@
             })
             if(e.target.value==="")
             {
+                errorFlag=true;
                 e.target.style.border="2px solid red";
                 console.log("email field required"); 
             }
             else if(!email.checkValidity())
             {
+                errorFlag=true;
                 emailValid.children[0].style.color="green";
                 if(email.validity.patternMismatch)
                 {
@@ -142,7 +146,8 @@
                 }
             }
             else
-            {
+            {       
+                    errorFlag=false;
                     emailValid.children[0].style.color="green";
                     emailValid.children[1].style.color="green";
                     e.target.style.border="2px solid green"
@@ -173,13 +178,13 @@
                 passwordValid.style.marginLeft="30px";
             });
             if(e.target.value==="")
-            {
+            {       errorFlag=true;
                     e.target.style.border="2px solid red"
                     console.log("password field required");
                     passwordValid.innerHTML="";
             }
             else if(!password.checkValidity())
-            {
+            {       errorFlag=true;
                     if(password.validity.patternMismatch)
                     {
                         e.target.style.border="2px solid red"
@@ -188,7 +193,8 @@
                     }
             }
             else
-            {       e.target.style.border="2px solid green";
+            {       errorFlag=false;
+                    e.target.style.border="2px solid green";
                     console.log("password matched");
                     passValidation(passwordValid);
             }
@@ -215,17 +221,32 @@
                             passwordValid.children[3].style.color="green";
                         }
        }
-
+       loginForm=document.getElementById("Login-form");
        document.querySelector("#Loginbtn").addEventListener("click",(e)=>{
             e.preventDefault();
             let Login=document.querySelector("#Login-form");
-            if(Login.checkValidity())
+            if(Login.checkValidity()&&!errorFlag)
             {
-                // console.log("validity passed")
+                new Promise(function(resolve,reject){
+                    fd=new FormData(loginForm);
+                    fetch("{{route('Login')}}",{
+                        method:"post",
+                        body:fd,
+                    })
+                    .then((response)=>response.text())
+                    .then((data)=>{resolve(data)})
+                    .catch((error)=>{reject(error)})
+                })
+                .then((data)=>{
+                    window.location.href="{{route('products')}}";
+                })
+                .catch((error)=>{
+                    console.log(error);
+                });
             }
             else
             {
-                // console.log("validity failed")
+                console.log("validity failed")
             }
         });
     })
