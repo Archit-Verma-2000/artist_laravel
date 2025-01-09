@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>SB Admin 2 - Login</title>
 
     <!-- Custom fonts for this template-->
@@ -49,7 +49,7 @@
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                  aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address..."  name="email" id="email" pattern='^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$' required>
+                                                placeholder="Enter Email Address..."  name="email" id="email" pattern='^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$' value="{{old('email')}}" required>
                                             <div id="email-valid">
 
                                             </div>
@@ -229,18 +229,32 @@
             {
                 new Promise(function(resolve,reject){
                     fd=new FormData(loginForm);
+                    let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                     fetch("{{route('Login')}}",{
-                        method:"post",
+                        method:"POST",
                         body:fd,
+                        headers: {
+                            'X-CSRF-TOKEN': csrfToken // Add CSRF token to headers
+                        },
                     })
-                    .then((response)=>response.text())
+                    .then((response)=>response.json())
                     .then((data)=>{resolve(data)})
                     .catch((error)=>{reject(error)})
                 })
                 .then((data)=>{
-                    window.location.href="{{route('products')}}";
+                     alert(data.session);
+                     console.log(data.session);
+                     if(data.status==="failed")
+                     {
+                        
+                     }
+                     else if(data.status==="success")
+                     {
+                        window.location.href="{{route('products')}}";
+                     }  
                 })
                 .catch((error)=>{
+                    alert(error);
                     console.log(error);
                 });
             }

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Middleware\UserLoggedIn;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,19 +17,7 @@ use App\Http\Controllers\RegisterController;
 
 Route::get('/', function () {
     return view('index');
-});
-
-Route::get('/index', function () {
-    return view('index');
 })->name('index');
-
-Route::get('/login',function() {
-    return view('login');
-})->name('login');
-
-Route::get('/register',function() {
-    return view('register');
-})->name('register');
 
 Route::get('/products',function(){
     return view('Customer.Pages.product-detail');
@@ -37,5 +26,10 @@ Route::get('/products',function(){
 Route::post('/Login', [LoginController::class,'Login'])->name('Login');
 
 Route::post('/register', [RegisterController::class,'Register'])->name('RegisterRequest');
+
+Route::get('/login', [RegisterController::class,'login'])->name('login');
+Route::get('/register', [RegisterController::class,'registerView'])->name('register');
+Route::get('/Logout', [RegisterController::class,'logout'])->name('logout');
+
 
 

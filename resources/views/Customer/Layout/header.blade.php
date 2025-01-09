@@ -16,8 +16,12 @@
 									<li class=""><a href="{{route('index')}}" class="active">Home</a>
 									</li>
 									<li><a href="{{route('products')}}">Products </a></li>
-                                    <li><a href="{{route('login')}}">Login</a></li>
-                                    <li><a href="{{route('register')}}">Register</a></li>
+										@auth
+										<li><a href="{{route('logout')}}">Logout</a></li>
+										@else
+										<li><a href="{{route('login')}}">Login</a></li>
+										<li><a href="{{route('register')}}">Register</a></li>
+										@endauth		
 								</ul>
 							</div>
                             <div class="last-mains">

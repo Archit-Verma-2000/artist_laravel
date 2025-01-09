@@ -7,8 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;  // For hashing the password
 
+
 class RegisterController extends Controller
 {
+    public function __construct() {
+        $this->middleware('guest');
+    }
     public function Register(Request $request)
     {
         // Validate the incoming request
@@ -37,11 +41,26 @@ class RegisterController extends Controller
         $user->email = $email;
         $user->password = $pass;
         $user->save();  // Save the user to the database
-        
+        $request->session()->regenerate();
+        $session=session()->all();
         return response()->json([
             'status' => 'success',
             'message' => 'User registered successfully',
+            'session' => $session
         ], 200);
+    }
+    public function login() {
+        return view('login');
+    }
+
+    public function registerView()
+    {
+        return view('register');
+    }
+    public function logout()
+    {
+        auth()->logout();
+        return view('/');
     }
 }
 

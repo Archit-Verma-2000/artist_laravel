@@ -410,14 +410,14 @@
                             }
                             else if(data.status=="failed")
                             {
-                                console.log(data.errors.email[0]) 
+                                console.log(data.errors.email[0]); 
                             }
                         })  
                         .catch((error) => {console.log(error)});   
                     }
                     else
                     {
-                        console.log("password dont match")
+                        console.log("password dont match");
                     }
                 }
                 else
