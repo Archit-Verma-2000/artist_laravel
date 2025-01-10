@@ -16,6 +16,7 @@
 									<li class=""><a href="{{route('index')}}" class="active">Home</a>
 									</li>
 									<li><a href="{{route('products')}}">Products </a></li>
+									
 										@auth
 										<li><a href="{{route('logout')}}">Logout</a></li>
 										@else
