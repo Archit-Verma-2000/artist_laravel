@@ -230,7 +230,7 @@
                 new Promise(function(resolve,reject){
                     fd=new FormData(loginForm);
                     let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    fetch("{{route('Login')}}",{
+                    fetch("{{route('loginstore')}}",{
                         method:"POST",
                         body:fd,
                         headers: {

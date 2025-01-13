@@ -12,7 +12,6 @@
 	@include('Customer.Layout.header')
  <!-- Header end-->
 <!-- product details -->
-{{auth()->user()}}
 <section class="product-detail">
         <div class="pd-wrap">
             <div class="container">

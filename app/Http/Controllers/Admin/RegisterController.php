@@ -1,7 +1,7 @@
 <?php
-namespace App\Http\Controllers;
-
-use App\Models\Customer;
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;  // For hashing the password
 class RegisterController extends Controller
 {
     public function __construct() {
-        $this->middleware('guest')->except('logout','login','register');
+        $this->middleware('guest:admin')->except('logout');
     }
 
     public function Register(Request $request)
@@ -38,7 +38,7 @@ class RegisterController extends Controller
         $hashedPassword = Hash::make($password);  // Hash the password for security
 
         // Insert data using the Customer model
-        Customer::create([
+        Admin::create([
             'name' => $name,
             'email' => $email,
             'password' => $hashedPassword,
@@ -67,17 +67,7 @@ class RegisterController extends Controller
         ], 401);
     }
 
-    public function login() {
-        if(Auth::check())
-        {
-            return redirect()->route('products');
-        }
-        $response = response()->view('login');
-        $response->headers->set('Cache-Control', 'no-cache, no-store, must-revalidate');
-        $response->headers->set('Pragma', 'no-cache');
-        $response->headers->set('Expires', '0');
-        return $response;
-    }
+   
 
     public function registerView() {
         if(Auth::check())

@@ -395,7 +395,7 @@
                         console.log("inside promise");
                         new Promise((resolve,reject)=>{
                             let fd=new FormData(form);
-                            fetch("{{route('RegisterRequest')}}",{
+                            fetch("{{route('registerstore')}}",{
                                 body:fd,
                                 method:"POST",
                             })

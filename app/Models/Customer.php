@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;  // For factory support
 class Customer extends Authenticatable  // Extending Authenticatable for authentication
 {
     use HasFactory;  // Eloquent factory support
-
+    protected $guard='customer';
     // Define the attributes that are mass assignable
     protected $fillable = ['name', 'email', 'password'];
 

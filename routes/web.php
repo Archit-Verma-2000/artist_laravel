@@ -20,8 +20,8 @@ use App\Http\Middleware\UserLoggedIn;
 
 
 
-Route::post('/Login', [LoginController::class,'Login'])->name('Login');
-Route::post('/register', [RegisterController::class,'Register'])->name('RegisterRequest');
+// Route::post('/Login', [LoginController::class,'Login'])->name('Login');
+// Route::post('/register', [RegisterController::class,'Register'])->name('RegisterRequest');
 
 
 
@@ -30,9 +30,11 @@ Route::get('/', function () {
 })->name('index');
 
 Route::get('/products',[ProductsController::class,'ProductView'])->name('products');
-Route::get('/login', [RegisterController::class,'login'])->name('login');
-Route::get('/register', [RegisterController::class,'registerView'])->name('register');
-Route::get('/Logout', [RegisterController::class,'logout'])->name('logout');
+// Route::get('/login', [RegisterController::class,'login'])->name('login');
+// Route::get('/register', [RegisterController::class,'registerView'])->name('register');
+// Route::get('/Logout', [RegisterController::class,'logout'])->name('logout');
+require __DIR__.'/admin-auth.php';
+
 
 
 
