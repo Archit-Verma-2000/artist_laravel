@@ -6,6 +6,7 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProductsController;
 use App\Http\controllers\LogoutController;
 use App\Http\Middleware\UserLoggedIn;
+use App\Http\Controllers\IndexController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +26,7 @@ use App\Http\Middleware\UserLoggedIn;
 
 
 
-Route::get('/', function () {
-    return view('index');
-})->name('index');
-
-Route::get('/products',[ProductsController::class,'ProductView'])->name('products');
+Route::get('/',[IndexController::class,'indexView'])->name('index');
 // Route::get('/login', [RegisterController::class,'login'])->name('login');
 // Route::get('/register', [RegisterController::class,'registerView'])->name('register');
 // Route::get('/Logout', [RegisterController::class,'logout'])->name('logout');

@@ -242,15 +242,15 @@
                     .catch((error)=>{reject(error)})
                 })
                 .then((data)=>{
-                     alert(data.session);
-                     console.log(data.session);
+                    //  alert(data.session);
                      if(data.status==="failed")
                      {
-                        
+                        console.log("failed");
                      }
                      else if(data.status==="success")
                      {
-                        window.location.href="{{route('products')}}";
+                        console.log("success");
+                        window.location.href="{{route('dashboard')}}";
                      }  
                 })
                 .catch((error)=>{

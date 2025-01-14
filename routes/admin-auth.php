@@ -10,6 +10,7 @@
         Route::get('/login', [LoginController::class,'loginView'])->name('login');
         Route::post('/login', [LoginController::class,'login'])->name('loginstore');
 
-        Route::get('/Logout', [RegisterController::class,'logout'])->name('logout');
+        Route::get('/dashboard',[LoginController::class,'dashboardView'])->name('dashboard');
+        Route::get('/logout', [RegisterController::class,'logout'])->name('logout');
     });
 ?>

@@ -406,11 +406,11 @@
                         .then((data) => {
                             if(data.status=="success")
                             {
-                                window.location.href="{{route('products')}}";
+                                window.location.href="{{route('login')}}";
                             }
                             else if(data.status=="failed")
                             {
-                                console.log(data.errors.email[0]); 
+                                console.log(data); 
                             }
                         })  
                         .catch((error) => {console.log(error)});   

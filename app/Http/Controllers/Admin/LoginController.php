@@ -12,8 +12,7 @@ class LoginController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:admin')->only([]);
-        $this->middleware('auth:admin')->only('logout');
+        $this->middleware('guest:admin')->except('dashboardView','loginView');
     }
     public function login(Request $request)
     {
@@ -31,7 +30,7 @@ class LoginController extends Controller
             'email' => $request->input('email'),
             'password' =>$request->input('password')
         ];
-       if(Auth::attempt($credentials))
+       if(Auth::guard('admin')->attempt($credentials))
        {
             $request->session()->regenerate();
             return response()->json([
@@ -47,14 +46,21 @@ class LoginController extends Controller
        }
     }
     public function loginView() {
-        if(Auth::check())
+        if(Auth::guard('admin')->check())
         {
-            return redirect()->route('products');
+            return redirect()->route('dashboard');
         }
-        $response = response()->view('login');
-        $response->headers->set('Cache-Control', 'no-cache, no-store, must-revalidate');
-        $response->headers->set('Pragma', 'no-cache');
-        $response->headers->set('Expires', '0');
-        return $response;
+        return view('login');
+    }
+
+    public function dashboardView() {
+        if(Auth::guard('admin')->check())
+        {
+            return view('Admin.pages.Admin');
+        }
+        else
+        {
+            return redirect()->route('login');;
+        }
     }
 }

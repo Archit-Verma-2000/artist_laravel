@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Hash;  // For hashing the password
 class RegisterController extends Controller
 {
     public function __construct() {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:admin')->except('logout','registerView');
     }
 
     public function Register(Request $request)
@@ -20,7 +20,7 @@ class RegisterController extends Controller
         $validator = Validator::make($request->all(), [
             'fname' => 'required|min:5|string',
             'lname' => 'required|min:5|string',
-            'email' => 'required|unique:Customers,email',
+            'email' => 'required|unique:admins,email',
             'password' => 'required|confirmed|min:8',  // Added min:8 for password security
         ]);
 
@@ -44,52 +44,31 @@ class RegisterController extends Controller
             'password' => $hashedPassword,
         ]);
 
-        // Prepare credentials for login attempt
-        $credentials = [
-            'email' => $email,
-            'password' => $password  // Use the plain password here
-        ];
-
-        // Attempt to authenticate the user
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-
             return response()->json([
                 'status' => 'success',
                 'message' => 'User registered and logged in successfully',
             ], 200);
-        }
-
-        // If authentication fails
-        return response()->json([
-            'status' => 'failed',
-            'message' => 'Authentication failed after registration',
-        ], 401);
     }
 
-   
+  
 
     public function registerView() {
-        if(Auth::check())
+        if(Auth::guard('admin')->check())
         {
-            return redirect()->route('products');
+            return redirect()->route('dashboard');
         }
-        $response = response()->view('register');
-        $response->headers->set('Cache-Control', 'no-cache, no-store, must-revalidate');
-        $response->headers->set('Pragma', 'no-cache');
-        $response->headers->set('Expires', '0');
-        return $response;
+        return view('register');
     }
 
     public function logout() {
-        if(Auth::check())
+        if(Auth::guard('admin')->check())
         {
-            Auth::logout();
+            Auth::guard('admin')->logout();
             session()->invalidate();  
-            session()->regenerateToken();  
+
         } 
         return redirect()->route('login');
     }
-}
 
+}
 
