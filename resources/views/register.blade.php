@@ -48,7 +48,13 @@
                 <div class="col-lg">
                     <div class="p-5">
                         <div class="text-center">
-                            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            <h1 class="h4 text-gray-900 mb-4">
+                                @if(Route::is('admin.register'))        
+                                    Admin-Register
+                                @elseif(Route::is('customer.register'))
+                                    Customer-Register
+                                @endif
+                            </h1>
                         </div>
                         <form class="user" id="registerForm">
                             @csrf
@@ -392,10 +398,14 @@
                 {
                     if(pass.value==rpass.value)
                     {
+                        let currentUrl = window.location.href; // Get the current URL
+                        let userType=currentUrl.includes('admin') ? 'admin' : 'customer';
                         console.log("inside promise");
                         new Promise((resolve,reject)=>{
                             let fd=new FormData(form);
-                            fetch("{{route('registerstore')}}",{
+                            
+                            let url=userType=='admin'?"{{route('admin.registerstore')}}":"{{route('customer.registerstore')}}";
+                            fetch(url,{
                                 body:fd,
                                 method:"POST",
                             })
@@ -406,7 +416,8 @@
                         .then((data) => {
                             if(data.status=="success")
                             {
-                                window.location.href="{{route('login')}}";
+                                let loginpage=userType=='admin'?"{{route('admin.login')}}":"{{route('customer.login')}}";
+                                window.location.href=loginpage;
                             }
                             else if(data.status=="failed")
                             {

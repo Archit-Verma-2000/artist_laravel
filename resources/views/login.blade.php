@@ -42,7 +42,13 @@
                             <div class="col-lg">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">
+                                            @if(Route::is('admin.login'))        
+                                                Admin-Login
+                                            @elseif(Route::is('customer.login'))
+                                                Customer-Login
+                                            @endif
+                                        </h1>
                                     </div>
                                     <form class="user" id="Login-form">
                                         @csrf
@@ -227,10 +233,14 @@
             let Login=document.querySelector("#Login-form");
             if(Login.checkValidity()&&!errorFlag)
             {
+                let currentUrl = window.location.href; // Get the current URL
+                let userType=currentUrl.includes('admin') ? 'admin' : 'customer';
                 new Promise(function(resolve,reject){
                     fd=new FormData(loginForm);
                     let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    fetch("{{route('loginstore')}}",{
+                    let userType=currentUrl.includes('admin') ? 'admin' : 'customer';
+                    let url=userType=='admin'?"{{route('admin.loginstore')}}":"{{route('customer.loginstore')}}";
+                    fetch(url,{
                         method:"POST",
                         body:fd,
                         headers: {
@@ -250,7 +260,8 @@
                      else if(data.status==="success")
                      {
                         console.log("success");
-                        window.location.href="{{route('dashboard')}}";
+                        let dashboard=userType=='admin'?"{{route('admin.dashboard')}}":"{{route('customer.dashboard')}}";
+                        window.location.href=dashboard;
                      }  
                 })
                 .catch((error)=>{
